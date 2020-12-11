@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: zuul-service
+server:
+  port: 7000
+zuul:
+  routes:
+      serv-greet:
+        path: /greeting-service/**
+        serviceId: greeting-microservice
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka

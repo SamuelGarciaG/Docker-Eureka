@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: greeting-microservice
+server: 
+  port: 8001
+# Config de el servidor  
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
