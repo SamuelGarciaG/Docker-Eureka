@@ -117,7 +117,7 @@ Según la configuración que hemos elegido, debería quedar así:
 </project>
 ```
 
-Tras comprobar que las dependencias están correctamente definidas, vamos a la clase main del proyecto, que tendremos que anotar con **@EnableEurekaServer** para activar la autoconfiguración como Servidor Eureka.
+Tras comprobar que las dependencias están correctamente definidas, vamos a la clase Main del proyecto, que tendremos que anotar con **@EnableEurekaServer** para activar la autoconfiguración como Servidor Eureka.
 
 ```java
 package com.autentia.dockerspringnetflix;
@@ -252,7 +252,7 @@ Una vez creado, lo abrimos con el IDE que queramos y procedemos a configurarlo. 
 </project>
 ```
 
-El siguiente paso será añadir la anotación **@EnableZuulProxy**, que activará la configuración de Zuul para esta aplicación.
+El siguiente paso será añadir la anotación **@EnableZuulProxy** en su clase Main, que activará la configuración de Zuul para esta aplicación.
 
 ```java
 package com.autentia.dockerspringnetflix;
@@ -272,7 +272,7 @@ public class DockerSpringNetflixZuulServiceApplication {
 }
 ```
 
-Una vez activada la configuración, debemos definirla. Este servicio es bastante especial, ya que tenemos que registrar las rutas de los microservicios que queramos exponer en su configuración, además de registrarlo en Eureka. 
+Una vez activada la configuración, debemos definirla en el application.yml. Este servicio es bastante especial, ya que tenemos que registrar las rutas de los microservicios que queramos exponer en su configuración, además de registrarlo en Eureka. 
 
 En este caso, definimos una ruta para el futuro microservicio que vamos a crear. La ruta de registro en eureka es un poco particular, ya que en los ejemplos habituales suele ser algo como localhost:8761, pero en nuestro caso, vamos a usar el nombre del servicio de eureka (porque localhost en Docker no nos vale). Haremos todo esto de la siguiente manera:
 
@@ -299,7 +299,7 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka
 ```
 
-Al igual que en el anterior servicio, terminamos la creación de este generando el .jar:
+Al igual que en el anterior servicio, terminamos la creación de este generando el .jar ejecutando en la raíz del proyecto el comando:
 
 ```
 mvn clean install
@@ -477,7 +477,7 @@ public class GreetingController {
 }
 ```
 
-Una vez implementados el controlador y el servicio, vamos a terminar definiendo la configuración de este servicio, que será muy sencilla:
+Una vez implementados el controlador y el servicio, vamos a terminar definiendo la configuración de este servicio en su application.yml, que será muy sencilla:
 
 ```.yml
 spring:
@@ -495,7 +495,7 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka
 ```
 
-Una vez guardados todos los archivos, generamos el .jar de la aplicación:
+Una vez guardados todos los archivos, generamos el .jar de la aplicación ejecutando en la raíz del proyecto el comando:
 
 ```
 mvn clean install
