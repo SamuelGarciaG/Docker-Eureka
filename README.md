@@ -539,6 +539,20 @@ ADD target/DockerSpringNetflix-GreetingMicroservice-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 ```
 
+Tras definir los Dockerfiles, debemos crear las imágenes con los siguiente comandos, que ejecutaremos en donde esté ubicado cada uno de los Dockerfiles:
+
+```shell
+docker build -t eureka .
+```
+
+```shell
+docker build -t zuul .
+```
+
+```shell
+docker build -t greetmicroservice .
+```
+
 <a name="contenedores"></a>
 ## Creación de contenedores y despliegue
 
